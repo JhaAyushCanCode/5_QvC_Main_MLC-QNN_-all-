@@ -32,8 +32,8 @@ PATIENCE     = 189
 THRESH_TUNING= True        
 USE_WANDB    = False       
 
-# Dataset paths - UPDATE THESE PATHS TO MATCH YOUR DIRECTORY
-DATA_DIR = r"C:\Users\Admin\.spyder-py3\QvC-3_docs"  # Update this path
+# Dataset paths 
+DATA_DIR = r"C:\Users\Admin\.spyder-py3\QvC-3_docs"  # *********************** Update required before rerun
 TRAIN_PATH = os.path.join(DATA_DIR, "train.csv")
 VAL_PATH   = os.path.join(DATA_DIR, "val.csv")
 TEST_PATH  = os.path.join(DATA_DIR, "test.csv")
@@ -42,7 +42,7 @@ print(f"Device: {device} | Effective batch: {BATCH_SIZE*ACCUM_STEPS}")
 
 #            load local dataset files
 
-# Define emotion labels (28 emotions from GoEmotions)
+# Define emotion labels 
 all_labels = [
     'admiration','amusement','anger','annoyance','approval','caring',
     'confusion','curiosity','desire','disappointment','disapproval','disgust',
@@ -302,14 +302,14 @@ print(f"Test Macro-F1: {test_macro:.4f}")
 
 print("\n==== Detailed Classification Report ====")
 try:
-    # Ensure we have the correct number of labels
+    # Ensure correct number of labels
     if len(all_labels) != N_LABELS:
         print(f"Warning: Label count mismatch. Using first {N_LABELS} labels.")
         display_labels = all_labels[:N_LABELS]
     else:
         display_labels = all_labels
     
-    # Convert any tensors to numpy arrays
+    # Convert tensors to numpy arrays
     if isinstance(test_labels, torch.Tensor):
         test_labels = test_labels.numpy()
     if isinstance(test_preds, torch.Tensor):
@@ -369,7 +369,7 @@ def final_report(y_true, y_pred, label_names):
     
     return df_report
 
-# Generate final report
+#     final report
 try:
     df_report = final_report(test_labels, test_preds, all_labels)
     
@@ -391,7 +391,7 @@ try:
         }
     }
     
-    # Save detailed results
+    # Save detailed results (anxiety, not compulsory)
     pd.DataFrame([results]).to_csv('experiment_results.csv', index=False)
     torch.save({
         'final_model': model.state_dict(),
@@ -412,3 +412,4 @@ except Exception as e:
 print("\n=== Training Complete ===")
 print(f"Best validation macro-F1: {best_macro:.4f}")
 print(f"Final test macro-F1: {test_macro:.4f}")
+
