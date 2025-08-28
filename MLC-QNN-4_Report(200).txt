@@ -1,0 +1,299 @@
+Python 3.9.23 (main, Jun  5 2025, 13:25:08) [MSC v.1929 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 8.15.0 -- An enhanced Interactive Python. Type '?' for help.
+
+%runfile C:/Users/Admin/.spyder-py3/MLC-QNN_docs/MLC-QML-4.py --wdir
+C:\Users\Admin\anaconda3\envs\MLC-QNN\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+Device: cuda | Effective batch: 256
+Found 28 emotion labels: ['admiration', 'amusement', 'anger', 'annoyance', 'approval', 'caring', 'confusion', 'curiosity', 'desire', 'disappointment']...
+Dataset sizes → 43410 5426 5427
+Pre-computing BERT embeddings .  .   .  .
+Computing embeddings: 100%|██████████| 1357/1357 [01:30<00:00, 14.97it/s]
+Computing embeddings: 100%|██████████| 170/170 [00:12<00:00, 13.37it/s]
+Computing embeddings: 100%|██████████| 170/170 [00:12<00:00, 13.55it/s]
+Starting training -  -  -  -- -
+Epoch 01 | Loss 0.9198 | Val Macro-F1 0.0755 | LR 0.000800                           
+New best model saved! Macro-F1: 0.0755
+Epoch 02 | Loss 0.7686 | Val Macro-F1 0.1402 | LR 0.000800                           
+New best model saved! Macro-F1: 0.1402
+Epoch 03 | Loss 0.7192 | Val Macro-F1 0.1749 | LR 0.000800                           
+New best model saved! Macro-F1: 0.1749
+Epoch 04 | Loss 0.6861 | Val Macro-F1 0.2018 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2018
+Epoch 05 | Loss 0.6645 | Val Macro-F1 0.2188 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2188
+Epoch 06 | Loss 0.6498 | Val Macro-F1 0.2111 | LR 0.000800                           
+Epoch 07 | Loss 0.6401 | Val Macro-F1 0.2234 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2234
+Epoch 08 | Loss 0.6321 | Val Macro-F1 0.2246 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2246
+Epoch 09 | Loss 0.6245 | Val Macro-F1 0.2266 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2266
+Epoch 10 | Loss 0.6194 | Val Macro-F1 0.2352 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2352
+Epoch 11 | Loss 0.6147 | Val Macro-F1 0.2363 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2363
+Epoch 12 | Loss 0.6083 | Val Macro-F1 0.2390 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2390
+Epoch 13 | Loss 0.6048 | Val Macro-F1 0.2404 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2404
+Epoch 14 | Loss 0.6013 | Val Macro-F1 0.2456 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2456
+Epoch 15 | Loss 0.5982 | Val Macro-F1 0.2414 | LR 0.000800                           
+Epoch 16 | Loss 0.5953 | Val Macro-F1 0.2425 | LR 0.000800                           
+Epoch 17 | Loss 0.5934 | Val Macro-F1 0.2398 | LR 0.000800                           
+Epoch 18 | Loss 0.5901 | Val Macro-F1 0.2442 | LR 0.000800                           
+Epoch 19 | Loss 0.5866 | Val Macro-F1 0.2487 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2487
+Epoch 20 | Loss 0.5860 | Val Macro-F1 0.2523 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2523
+Epoch 21 | Loss 0.5836 | Val Macro-F1 0.2555 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2555
+Epoch 22 | Loss 0.5817 | Val Macro-F1 0.2443 | LR 0.000800                           
+Epoch 23 | Loss 0.5811 | Val Macro-F1 0.2472 | LR 0.000800                           
+Epoch 24 | Loss 0.5778 | Val Macro-F1 0.2480 | LR 0.000800                           
+Epoch 25 | Loss 0.5758 | Val Macro-F1 0.2442 | LR 0.000800                           
+Epoch 26 | Loss 0.5750 | Val Macro-F1 0.2520 | LR 0.000800                           
+Epoch 27 | Loss 0.5732 | Val Macro-F1 0.2449 | LR 0.000800                           
+Epoch 28 | Loss 0.5726 | Val Macro-F1 0.2427 | LR 0.000800                           
+Epoch 29 | Loss 0.5702 | Val Macro-F1 0.2455 | LR 0.000800                           
+Epoch 30 | Loss 0.5692 | Val Macro-F1 0.2530 | LR 0.000800                           
+Epoch 31 | Loss 0.5672 | Val Macro-F1 0.2568 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2568
+Epoch 32 | Loss 0.5665 | Val Macro-F1 0.2463 | LR 0.000800                           
+Epoch 33 | Loss 0.5647 | Val Macro-F1 0.2526 | LR 0.000800                           
+Epoch 34 | Loss 0.5661 | Val Macro-F1 0.2445 | LR 0.000800                           
+Epoch 35 | Loss 0.5638 | Val Macro-F1 0.2466 | LR 0.000800                           
+Epoch 36 | Loss 0.5616 | Val Macro-F1 0.2548 | LR 0.000800                           
+Epoch 37 | Loss 0.5616 | Val Macro-F1 0.2533 | LR 0.000800                           
+Epoch 38 | Loss 0.5599 | Val Macro-F1 0.2508 | LR 0.000800                           
+Epoch 39 | Loss 0.5586 | Val Macro-F1 0.2435 | LR 0.000800                           
+Epoch 40 | Loss 0.5581 | Val Macro-F1 0.2501 | LR 0.000800                           
+Epoch 41 | Loss 0.5573 | Val Macro-F1 0.2507 | LR 0.000800                           
+Epoch 42 | Loss 0.5561 | Val Macro-F1 0.2622 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2622
+Epoch 43 | Loss 0.5557 | Val Macro-F1 0.2521 | LR 0.000800                           
+Epoch 44 | Loss 0.5550 | Val Macro-F1 0.2456 | LR 0.000800                           
+Epoch 45 | Loss 0.5551 | Val Macro-F1 0.2603 | LR 0.000800                           
+Epoch 46 | Loss 0.5538 | Val Macro-F1 0.2545 | LR 0.000800                           
+Epoch 47 | Loss 0.5521 | Val Macro-F1 0.2556 | LR 0.000800                           
+Epoch 48 | Loss 0.5517 | Val Macro-F1 0.2523 | LR 0.000800                           
+Epoch 49 | Loss 0.5509 | Val Macro-F1 0.2412 | LR 0.000800                           
+Epoch 50 | Loss 0.5507 | Val Macro-F1 0.2557 | LR 0.000800                           
+Epoch 51 | Loss 0.5506 | Val Macro-F1 0.2438 | LR 0.000800                           
+Epoch 52 | Loss 0.5494 | Val Macro-F1 0.2578 | LR 0.000800                           
+Epoch 53 | Loss 0.5483 | Val Macro-F1 0.2609 | LR 0.000800                           
+Epoch 54 | Loss 0.5464 | Val Macro-F1 0.2475 | LR 0.000800                           
+Epoch 55 | Loss 0.5462 | Val Macro-F1 0.2500 | LR 0.000800                           
+Epoch 56 | Loss 0.5464 | Val Macro-F1 0.2552 | LR 0.000800                           
+Epoch 57 | Loss 0.5466 | Val Macro-F1 0.2579 | LR 0.000800                           
+Epoch 58 | Loss 0.5444 | Val Macro-F1 0.2560 | LR 0.000800                           
+Epoch 59 | Loss 0.5441 | Val Macro-F1 0.2636 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2636
+Epoch 60 | Loss 0.5433 | Val Macro-F1 0.2612 | LR 0.000800                           
+Epoch 61 | Loss 0.5437 | Val Macro-F1 0.2525 | LR 0.000800                           
+Epoch 62 | Loss 0.5427 | Val Macro-F1 0.2535 | LR 0.000800                           
+Epoch 63 | Loss 0.5422 | Val Macro-F1 0.2415 | LR 0.000800                           
+Epoch 64 | Loss 0.5426 | Val Macro-F1 0.2515 | LR 0.000800                           
+Epoch 65 | Loss 0.5413 | Val Macro-F1 0.2500 | LR 0.000800                           
+Epoch 66 | Loss 0.5410 | Val Macro-F1 0.2502 | LR 0.000800                           
+Epoch 67 | Loss 0.5400 | Val Macro-F1 0.2541 | LR 0.000800                           
+Epoch 68 | Loss 0.5393 | Val Macro-F1 0.2567 | LR 0.000800                           
+Epoch 69 | Loss 0.5400 | Val Macro-F1 0.2558 | LR 0.000800                           
+Epoch 70 | Loss 0.5388 | Val Macro-F1 0.2567 | LR 0.000800                           
+Epoch 71 | Loss 0.5380 | Val Macro-F1 0.2494 | LR 0.000800                           
+Epoch 72 | Loss 0.5370 | Val Macro-F1 0.2425 | LR 0.000800                           
+Epoch 73 | Loss 0.5369 | Val Macro-F1 0.2503 | LR 0.000800                           
+Epoch 74 | Loss 0.5362 | Val Macro-F1 0.2499 | LR 0.000800                           
+Epoch 75 | Loss 0.5357 | Val Macro-F1 0.2493 | LR 0.000800                           
+Epoch 76 | Loss 0.5373 | Val Macro-F1 0.2520 | LR 0.000800                           
+Epoch 77 | Loss 0.5353 | Val Macro-F1 0.2561 | LR 0.000800                           
+Epoch 78 | Loss 0.5347 | Val Macro-F1 0.2533 | LR 0.000800                           
+Epoch 79 | Loss 0.5342 | Val Macro-F1 0.2491 | LR 0.000800                           
+Epoch 80 | Loss 0.5335 | Val Macro-F1 0.2562 | LR 0.000800                           
+Epoch 81 | Loss 0.5336 | Val Macro-F1 0.2536 | LR 0.000800                           
+Epoch 82 | Loss 0.5346 | Val Macro-F1 0.2549 | LR 0.000800                           
+Epoch 83 | Loss 0.5331 | Val Macro-F1 0.2482 | LR 0.000800                           
+Epoch 84 | Loss 0.5342 | Val Macro-F1 0.2460 | LR 0.000800                           
+Epoch 85 | Loss 0.5333 | Val Macro-F1 0.2523 | LR 0.000800                           
+Epoch 86 | Loss 0.5323 | Val Macro-F1 0.2637 | LR 0.000800                           
+New best model saved! Macro-F1: 0.2637
+Epoch 87 | Loss 0.5327 | Val Macro-F1 0.2616 | LR 0.000800                           
+Epoch 88 | Loss 0.5314 | Val Macro-F1 0.2463 | LR 0.000800                           
+Epoch 89 | Loss 0.5312 | Val Macro-F1 0.2607 | LR 0.000800                           
+Epoch 90 | Loss 0.5304 | Val Macro-F1 0.2488 | LR 0.000800                           
+Epoch 91 | Loss 0.5296 | Val Macro-F1 0.2515 | LR 0.000800                           
+Epoch 92 | Loss 0.5298 | Val Macro-F1 0.2556 | LR 0.000800                           
+Epoch 93 | Loss 0.5295 | Val Macro-F1 0.2439 | LR 0.000800                           
+Epoch 94 | Loss 0.5289 | Val Macro-F1 0.2522 | LR 0.000800                           
+Epoch 95 | Loss 0.5299 | Val Macro-F1 0.2562 | LR 0.000800                           
+Epoch 96 | Loss 0.5294 | Val Macro-F1 0.2612 | LR 0.000800                           
+Epoch 97 | Loss 0.5280 | Val Macro-F1 0.2535 | LR 0.000800                           
+Epoch 98 | Loss 0.5281 | Val Macro-F1 0.2589 | LR 0.000800                           
+Epoch 99 | Loss 0.5287 | Val Macro-F1 0.2583 | LR 0.000800                           
+Epoch 100 | Loss 0.5265 | Val Macro-F1 0.2477 | LR 0.000800                           
+Epoch 101 | Loss 0.5285 | Val Macro-F1 0.2609 | LR 0.000800                           
+Epoch 102 | Loss 0.5279 | Val Macro-F1 0.2580 | LR 0.000800                           
+Epoch 103 | Loss 0.5268 | Val Macro-F1 0.2470 | LR 0.000800                           
+Epoch 104 | Loss 0.5266 | Val Macro-F1 0.2604 | LR 0.000800                           
+Epoch 105 | Loss 0.5259 | Val Macro-F1 0.2543 | LR 0.000800                           
+Epoch 106 | Loss 0.5257 | Val Macro-F1 0.2502 | LR 0.000800                           
+Epoch 107 | Loss 0.5264 | Val Macro-F1 0.2550 | LR 0.000800                           
+Epoch 108 | Loss 0.5246 | Val Macro-F1 0.2529 | LR 0.000800                           
+Epoch 109 | Loss 0.5247 | Val Macro-F1 0.2506 | LR 0.000800                           
+Epoch 110 | Loss 0.5240 | Val Macro-F1 0.2566 | LR 0.000800                           
+Epoch 111 | Loss 0.5245 | Val Macro-F1 0.2522 | LR 0.000800                           
+Epoch 112 | Loss 0.5236 | Val Macro-F1 0.2507 | LR 0.000800                           
+Epoch 113 | Loss 0.5240 | Val Macro-F1 0.2578 | LR 0.000800                           
+Epoch 114 | Loss 0.5226 | Val Macro-F1 0.2621 | LR 0.000800                           
+Epoch 115 | Loss 0.5234 | Val Macro-F1 0.2602 | LR 0.000800                           
+Epoch 116 | Loss 0.5234 | Val Macro-F1 0.2450 | LR 0.000800                           
+Epoch 117 | Loss 0.5229 | Val Macro-F1 0.2563 | LR 0.000800                           
+Epoch 118 | Loss 0.5228 | Val Macro-F1 0.2616 | LR 0.000800                           
+Epoch 119 | Loss 0.5229 | Val Macro-F1 0.2562 | LR 0.000800                           
+Epoch 120 | Loss 0.5218 | Val Macro-F1 0.2529 | LR 0.000800                           
+Epoch 121 | Loss 0.5216 | Val Macro-F1 0.2539 | LR 0.000800                           
+Epoch 122 | Loss 0.5218 | Val Macro-F1 0.2500 | LR 0.000800                           
+Epoch 123 | Loss 0.5210 | Val Macro-F1 0.2521 | LR 0.000800                           
+Epoch 124 | Loss 0.5217 | Val Macro-F1 0.2492 | LR 0.000800                           
+Epoch 125 | Loss 0.5210 | Val Macro-F1 0.2631 | LR 0.000800                           
+Epoch 126 | Loss 0.5200 | Val Macro-F1 0.2525 | LR 0.000800                           
+Epoch 127 | Loss 0.5199 | Val Macro-F1 0.2528 | LR 0.000800                           
+Epoch 128 | Loss 0.5201 | Val Macro-F1 0.2499 | LR 0.000800                           
+Epoch 129 | Loss 0.5198 | Val Macro-F1 0.2505 | LR 0.000800                           
+Epoch 130 | Loss 0.5194 | Val Macro-F1 0.2470 | LR 0.000800                           
+Epoch 131 | Loss 0.5202 | Val Macro-F1 0.2475 | LR 0.000800                           
+Epoch 132 | Loss 0.5205 | Val Macro-F1 0.2468 | LR 0.000800                           
+Epoch 133 | Loss 0.5191 | Val Macro-F1 0.2509 | LR 0.000800                           
+Epoch 134 | Loss 0.5202 | Val Macro-F1 0.2482 | LR 0.000800                           
+Epoch 135 | Loss 0.5182 | Val Macro-F1 0.2610 | LR 0.000800                           
+Epoch 136 | Loss 0.5176 | Val Macro-F1 0.2535 | LR 0.000800                           
+Epoch 137 | Loss 0.5187 | Val Macro-F1 0.2453 | LR 0.000800                           
+Epoch 138 | Loss 0.5174 | Val Macro-F1 0.2475 | LR 0.000800                           
+Epoch 139 | Loss 0.5169 | Val Macro-F1 0.2560 | LR 0.000800                           
+Epoch 140 | Loss 0.5174 | Val Macro-F1 0.2569 | LR 0.000800                           
+Epoch 141 | Loss 0.5167 | Val Macro-F1 0.2447 | LR 0.000800                           
+Epoch 142 | Loss 0.5177 | Val Macro-F1 0.2503 | LR 0.000800                           
+Epoch 143 | Loss 0.5169 | Val Macro-F1 0.2489 | LR 0.000800                           
+Epoch 144 | Loss 0.5170 | Val Macro-F1 0.2600 | LR 0.000800                           
+Epoch 145 | Loss 0.5163 | Val Macro-F1 0.2419 | LR 0.000800                           
+Epoch 146 | Loss 0.5156 | Val Macro-F1 0.2526 | LR 0.000800                           
+Epoch 147 | Loss 0.5154 | Val Macro-F1 0.2497 | LR 0.000800                           
+Epoch 148 | Loss 0.5161 | Val Macro-F1 0.2494 | LR 0.000800                           
+Epoch 149 | Loss 0.5159 | Val Macro-F1 0.2488 | LR 0.000800                           
+Epoch 150 | Loss 0.5144 | Val Macro-F1 0.2459 | LR 0.000800                           
+Epoch 151 | Loss 0.5152 | Val Macro-F1 0.2532 | LR 0.000800                           
+Epoch 152 | Loss 0.5150 | Val Macro-F1 0.2537 | LR 0.000800                           
+Epoch 153 | Loss 0.5144 | Val Macro-F1 0.2391 | LR 0.000800                           
+Epoch 154 | Loss 0.5154 | Val Macro-F1 0.2524 | LR 0.000800                           
+Epoch 155 | Loss 0.5147 | Val Macro-F1 0.2515 | LR 0.000800                           
+Epoch 156 | Loss 0.5151 | Val Macro-F1 0.2455 | LR 0.000800                           
+Epoch 157 | Loss 0.5137 | Val Macro-F1 0.2465 | LR 0.000800                           
+Epoch 158 | Loss 0.5141 | Val Macro-F1 0.2417 | LR 0.000800                           
+Epoch 159 | Loss 0.5140 | Val Macro-F1 0.2531 | LR 0.000800                           
+Epoch 160 | Loss 0.5135 | Val Macro-F1 0.2451 | LR 0.000800                           
+Epoch 161 | Loss 0.5136 | Val Macro-F1 0.2486 | LR 0.000800                           
+Epoch 162 | Loss 0.5137 | Val Macro-F1 0.2522 | LR 0.000800                           
+Epoch 163 | Loss 0.5137 | Val Macro-F1 0.2463 | LR 0.000800                           
+Epoch 164 | Loss 0.5131 | Val Macro-F1 0.2569 | LR 0.000800                           
+Epoch 165 | Loss 0.5124 | Val Macro-F1 0.2427 | LR 0.000800                           
+Epoch 166 | Loss 0.5127 | Val Macro-F1 0.2505 | LR 0.000800                           
+Epoch 167 | Loss 0.5128 | Val Macro-F1 0.2495 | LR 0.000800                           
+Epoch 168 | Loss 0.5127 | Val Macro-F1 0.2518 | LR 0.000800                           
+Epoch 169 | Loss 0.5114 | Val Macro-F1 0.2553 | LR 0.000800                           
+Epoch 170 | Loss 0.5119 | Val Macro-F1 0.2527 | LR 0.000800                           
+Epoch 171 | Loss 0.5121 | Val Macro-F1 0.2472 | LR 0.000800                           
+Epoch 172 | Loss 0.5113 | Val Macro-F1 0.2530 | LR 0.000800                           
+Epoch 173 | Loss 0.5109 | Val Macro-F1 0.2565 | LR 0.000800                           
+Epoch 174 | Loss 0.5113 | Val Macro-F1 0.2595 | LR 0.000800                           
+Epoch 175 | Loss 0.5117 | Val Macro-F1 0.2544 | LR 0.000800                           
+Epoch 176 | Loss 0.5106 | Val Macro-F1 0.2443 | LR 0.000800                           
+Epoch 177 | Loss 0.5098 | Val Macro-F1 0.2473 | LR 0.000800                           
+Epoch 178 | Loss 0.5098 | Val Macro-F1 0.2524 | LR 0.000800                           
+Epoch 179 | Loss 0.5100 | Val Macro-F1 0.2493 | LR 0.000800                           
+Epoch 180 | Loss 0.5101 | Val Macro-F1 0.2537 | LR 0.000800                           
+Epoch 181 | Loss 0.5105 | Val Macro-F1 0.2568 | LR 0.000800                           
+Epoch 182 | Loss 0.5099 | Val Macro-F1 0.2465 | LR 0.000800                           
+Epoch 183 | Loss 0.5098 | Val Macro-F1 0.2480 | LR 0.000800                           
+Epoch 184 | Loss 0.5101 | Val Macro-F1 0.2431 | LR 0.000800                           
+Epoch 185 | Loss 0.5090 | Val Macro-F1 0.2524 | LR 0.000800                           
+Epoch 186 | Loss 0.5093 | Val Macro-F1 0.2496 | LR 0.000800                           
+Epoch 187 | Loss 0.5092 | Val Macro-F1 0.2500 | LR 0.000800                           
+Epoch 188 | Loss 0.5091 | Val Macro-F1 0.2534 | LR 0.000800                           
+Epoch 189 | Loss 0.5076 | Val Macro-F1 0.2493 | LR 0.000800                           
+Epoch 190 | Loss 0.5086 | Val Macro-F1 0.2450 | LR 0.000800                           
+Epoch 191 | Loss 0.5067 | Val Macro-F1 0.2496 | LR 0.000800                           
+Epoch 192 | Loss 0.5081 | Val Macro-F1 0.2490 | LR 0.000800                           
+Epoch 193 | Loss 0.5082 | Val Macro-F1 0.2487 | LR 0.000800                           
+Epoch 194 | Loss 0.5081 | Val Macro-F1 0.2469 | LR 0.000800                           
+Epoch 195 | Loss 0.5077 | Val Macro-F1 0.2539 | LR 0.000800                           
+Epoch 196 | Loss 0.5065 | Val Macro-F1 0.2497 | LR 0.000800                           
+Epoch 197 | Loss 0.5073 | Val Macro-F1 0.2550 | LR 0.000800                           
+Epoch 198 | Loss 0.5059 | Val Macro-F1 0.2413 | LR 0.000800                           
+Epoch 199 | Loss 0.5057 | Val Macro-F1 0.2481 | LR 0.000800                           
+Epoch 200 | Loss 0.5066 | Val Macro-F1 0.2480 | LR 0.000800                           
+Loading best model for threshold tuning...
+Tuning per-label thresholds...
+Tuning thresholds: 100%|██████████| 28/28 [00:02<00:00,  9.56it/s]
+Threshold tuning completed!
+Final evaluation on test set...
+
+==== Final Test Results ====
+Test Macro-F1: 0.2823
+
+==== Detailed Classification Report ====
+                precision    recall  f1-score   support
+
+    admiration       0.39      0.59      0.47       504
+     amusement       0.31      0.64      0.42       264
+         anger       0.22      0.54      0.31       198
+     annoyance       0.19      0.46      0.27       320
+      approval       0.19      0.39      0.25       351
+        caring       0.22      0.43      0.29       135
+     confusion       0.15      0.64      0.24       153
+     curiosity       0.39      0.79      0.53       284
+        desire       0.20      0.25      0.22        83
+disappointment       0.10      0.30      0.15       151
+   disapproval       0.17      0.59      0.27       267
+       disgust       0.16      0.30      0.21       123
+ embarrassment       0.10      0.30      0.14        37
+    excitement       0.21      0.33      0.26       103
+          fear       0.18      0.35      0.23        78
+     gratitude       0.61      0.86      0.71       352
+         grief       0.00      0.00      0.00         6
+           joy       0.21      0.45      0.29       161
+          love       0.44      0.76      0.55       238
+   nervousness       0.14      0.13      0.13        23
+      optimism       0.26      0.55      0.36       186
+         pride       0.00      0.00      0.00        16
+   realization       0.10      0.12      0.11       145
+        relief       0.00      0.00      0.00        11
+       remorse       0.21      0.57      0.30        56
+       sadness       0.20      0.57      0.30       156
+      surprise       0.21      0.45      0.28       141
+       neutral       0.51      0.73      0.60      1787
+
+     micro avg       0.31      0.59      0.40      6329
+     macro avg       0.22      0.43      0.28      6329
+  weighted avg       0.34      0.59      0.42      6329
+   samples avg       0.35      0.61      0.42      6329
+
+
+=== Summary Metrics ===
+              precision    recall  f1-score  support
+micro avg      0.305267  0.590615  0.402498   6329.0
+macro avg      0.216267  0.432025  0.282317   6329.0
+weighted avg   0.339650  0.590615  0.424501   6329.0
+
+ 
+Important
+Figures are displayed in the Plots pane by default. To make them also appear inline in the console, you need to uncheck "Mute inline plotting" under the options menu of Plots.
+ 
+Results saved! Final test macro-F1: 0.2823
+Model parameters: 19,884
+
+=== Training Complete ===
+Best validation macro-F1: 0.2637
+Final test macro-F1: 0.2823

@@ -1,0 +1,130 @@
+Python 3.9.23 (main, Jun  5 2025, 13:25:08) [MSC v.1929 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 8.15.0 -- An enhanced Interactive Python. Type '?' for help.
+
+%runfile C:/Users/Admin/.spyder-py3/MLC-QNN_docs/MLC-QML-4.py --wdir
+C:\Users\Admin\anaconda3\envs\MLC-QNN\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+Device: cuda | Effective batch: 256
+Found 28 emotion labels: ['admiration', 'amusement', 'anger', 'annoyance', 'approval', 'caring', 'confusion', 'curiosity', 'desire', 'disappointment']...
+Dataset sizes → 43410 5426 5427
+Pre-computing BERT embeddings...
+Computing embeddings: 100%|██████████| 1357/1357 [01:56<00:00, 11.63it/s]
+Computing embeddings: 100%|██████████| 170/170 [00:14<00:00, 11.54it/s]
+Computing embeddings: 100%|██████████| 170/170 [00:14<00:00, 11.62it/s]
+Starting training...
+Epoch 01 | Loss 0.9485 | Val Macro-F1 0.0000 | LR 0.000500                           
+Epoch 02 | Loss 0.8225 | Val Macro-F1 0.1141 | LR 0.000500                           
+New best model saved! Macro-F1: 0.1141
+Epoch 03 | Loss 0.7498 | Val Macro-F1 0.1387 | LR 0.000500                           
+New best model saved! Macro-F1: 0.1387
+Epoch 04 | Loss 0.7218 | Val Macro-F1 0.1744 | LR 0.000500                           
+New best model saved! Macro-F1: 0.1744
+Epoch 05 | Loss 0.7002 | Val Macro-F1 0.1961 | LR 0.000500                           
+New best model saved! Macro-F1: 0.1961
+Epoch 06 | Loss 0.6782 | Val Macro-F1 0.2000 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2000
+Epoch 07 | Loss 0.6640 | Val Macro-F1 0.2120 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2120
+Epoch 08 | Loss 0.6529 | Val Macro-F1 0.2132 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2132
+Epoch 09 | Loss 0.6445 | Val Macro-F1 0.2114 | LR 0.000500                           
+Epoch 10 | Loss 0.6382 | Val Macro-F1 0.2153 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2153
+Epoch 11 | Loss 0.6331 | Val Macro-F1 0.2170 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2170
+Epoch 12 | Loss 0.6273 | Val Macro-F1 0.2188 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2188
+Epoch 13 | Loss 0.6234 | Val Macro-F1 0.2252 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2252
+Epoch 14 | Loss 0.6205 | Val Macro-F1 0.2265 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2265
+Epoch 15 | Loss 0.6169 | Val Macro-F1 0.2268 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2268
+Epoch 16 | Loss 0.6137 | Val Macro-F1 0.2302 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2302
+Epoch 17 | Loss 0.6100 | Val Macro-F1 0.2320 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2320
+Epoch 18 | Loss 0.6069 | Val Macro-F1 0.2294 | LR 0.000500                           
+Epoch 19 | Loss 0.6032 | Val Macro-F1 0.2340 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2340
+Epoch 20 | Loss 0.6017 | Val Macro-F1 0.2404 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2404
+Epoch 21 | Loss 0.5989 | Val Macro-F1 0.2427 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2427
+Epoch 22 | Loss 0.5964 | Val Macro-F1 0.2369 | LR 0.000500                           
+Epoch 23 | Loss 0.5954 | Val Macro-F1 0.2427 | LR 0.000500                           
+Epoch 24 | Loss 0.5921 | Val Macro-F1 0.2488 | LR 0.000500                           
+New best model saved! Macro-F1: 0.2488
+Epoch 25 | Loss 0.5906 | Val Macro-F1 0.2412 | LR 0.000500                           
+Epoch 26 | Loss 0.5889 | Val Macro-F1 0.2444 | LR 0.000500                           
+Epoch 27 | Loss 0.5874 | Val Macro-F1 0.2401 | LR 0.000500                           
+Epoch 28 | Loss 0.5859 | Val Macro-F1 0.2322 | LR 0.000500                           
+Epoch 29 | Loss 0.5844 | Val Macro-F1 0.2368 | LR 0.000500                           
+Epoch 30 | Loss 0.5831 | Val Macro-F1 0.2434 | LR 0.000500                           
+Epoch 31 | Loss 0.5811 | Val Macro-F1 0.2438 | LR 0.000500                           
+Early stopping at epoch 31
+Loading best model for threshold tuning...
+Tuning per-label thresholds...
+Tuning thresholds: 100%|██████████| 28/28 [00:02<00:00, 10.18it/s]
+Threshold tuning completed!
+Final evaluation on test set...
+
+==== Final Test Results ====
+Test Macro-F1: 0.2634
+
+==== Detailed Classification Report ====
+                precision    recall  f1-score   support
+
+    admiration       0.31      0.61      0.42       504
+     amusement       0.28      0.63      0.39       264
+         anger       0.22      0.57      0.31       198
+     annoyance       0.21      0.44      0.28       320
+      approval       0.17      0.47      0.25       351
+        caring       0.20      0.37      0.26       135
+     confusion       0.18      0.50      0.26       153
+     curiosity       0.39      0.76      0.52       284
+        desire       0.22      0.25      0.24        83
+disappointment       0.09      0.22      0.13       151
+   disapproval       0.20      0.53      0.29       267
+       disgust       0.19      0.25      0.21       123
+ embarrassment       0.28      0.14      0.18        37
+    excitement       0.16      0.32      0.21       103
+          fear       0.15      0.19      0.17        78
+     gratitude       0.57      0.82      0.67       352
+         grief       0.00      0.00      0.00         6
+           joy       0.17      0.51      0.26       161
+          love       0.31      0.71      0.43       238
+   nervousness       0.00      0.00      0.00        23
+      optimism       0.25      0.45      0.32       186
+         pride       0.00      0.00      0.00        16
+   realization       0.11      0.26      0.16       145
+        relief       0.00      0.00      0.00        11
+       remorse       0.18      0.41      0.25        56
+       sadness       0.20      0.43      0.27       156
+      surprise       0.24      0.36      0.29       141
+       neutral       0.50      0.76      0.60      1787
+
+     micro avg       0.30      0.58      0.40      6329
+     macro avg       0.21      0.39      0.26      6329
+  weighted avg       0.32      0.58      0.41      6329
+   samples avg       0.34      0.60      0.41      6329
+
+
+=== Summary Metrics ===
+              precision    recall  f1-score  support
+micro avg      0.300483  0.580502  0.395991   6329.0
+macro avg      0.206433  0.391636  0.263417   6329.0
+weighted avg   0.322705  0.580502  0.409718   6329.0
+
+ 
+Important
+Figures are displayed in the Plots pane by default. To make them also appear inline in the console, you need to uncheck "Mute inline plotting" under the options menu of Plots.
+ 
+Results saved! Final test macro-F1: 0.2634
+Model parameters: 19,884
+
+=== Training Complete ===
+Best validation macro-F1: 0.2488
+Final test macro-F1: 0.2634

@@ -1,0 +1,46 @@
+%runfile C:/Users/Admin/.spyder-py3/MLC-QNN_docs/MLC-QML-3.py --wdir
+C:\Users\Admin\anaconda3\envs\MLC-QNN\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+Device: cuda | Effective batch: 256
+Dataset sizes → 43410 5426 5427
+Epoch 01 | Loss 0.9483 | Macro-F1 0.0000
+Epoch 02 | Loss 0.8309 | Macro-F1 0.1005
+Epoch 03 | Loss 0.7669 | Macro-F1 0.1444
+Epoch 04 | Loss 0.7343 | Macro-F1 0.1565
+Epoch 05 | Loss 0.7105 | Macro-F1 0.1746
+Epoch 06 | Loss 0.6958 | Macro-F1 0.1837
+Epoch 07 | Loss 0.6855 | Macro-F1 0.1894
+Epoch 08 | Loss 0.6754 | Macro-F1 0.1985
+Epoch 09 | Loss 0.6662 | Macro-F1 0.2010
+Epoch 10 | Loss 0.6604 | Macro-F1 0.2137
+Epoch 11 | Loss 0.6540 | Macro-F1 0.2104
+Epoch 12 | Loss 0.6479 | Macro-F1 0.2093
+Epoch 13 | Loss 0.6441 | Macro-F1 0.2152
+Epoch 14 | Loss 0.6388 | Macro-F1 0.2143
+Epoch 15 | Loss 0.6346 | Macro-F1 0.2163
+Epoch 16 | Loss 0.6299 | Macro-F1 0.2208
+Epoch 17 | Loss 0.6271 | Macro-F1 0.2263
+Epoch 18 | Loss 0.6228 | Macro-F1 0.2206
+Epoch 19 | Loss 0.6204 | Macro-F1 0.2355
+Epoch 20 | Loss 0.6180 | Macro-F1 0.2329
+Epoch 21 | Loss 0.6133 | Macro-F1 0.2336
+Epoch 22 | Loss 0.6083 | Macro-F1 0.2308
+Epoch 23 | Loss 0.6057 | Macro-F1 0.2347
+Epoch 24 | Loss 0.6025 | Macro-F1 0.2361
+Epoch 25 | Loss 0.6003 | Macro-F1 0.2319
+Epoch 26 | Loss 0.5979 | Macro-F1 0.2433
+Epoch 27 | Loss 0.5950 | Macro-F1 0.2382
+Epoch 28 | Loss 0.5939 | Macro-F1 0.2440
+Epoch 29 | Loss 0.5907 | Macro-F1 0.2413
+Epoch 30 | Loss 0.5891 | Macro-F1 0.2408
+Epoch 31 | Loss 0.5884 | Macro-F1 0.2374
+Epoch 32 | Loss 0.5857 | Macro-F1 0.2411
+Epoch 33 | Loss 0.5849 | Macro-F1 0.2360
+Epoch 34 | Loss 0.5833 | Macro-F1 0.2457
+Epoch 35 | Loss 0.5829 | Macro-F1 0.2455
+Epoch 36 | Loss 0.5817 | Macro-F1 0.2403
+Epoch 37 | Loss 0.5808 | Macro-F1 0.2379
+Epoch 38 | Loss 0.5780 | Macro-F1 0.2413
+Epoch 39 | Loss 0.5780 | Macro-F1 0.2414
+Epoch 40 | Loss 0.5766 | Macro-F1 0.2436
+Epoch 41 | Loss 0.5764 | Macro-F1 0.2411
