@@ -14,9 +14,9 @@ from transformers import AutoTokenizer, AutoModel
 from datasets import load_dataset
 import pennylane as qml
 
-# ------------------------------
-# STEP 1: CONFIG + HYPERPARAMS
-# ------------------------------
+
+#  CONFIG + HYPERPARAMS
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 BATCH_SIZE = 64
@@ -25,21 +25,20 @@ EPOCHS = 10
 LR = 2e-5
 N_QUBITS = 8
 N_LAYERS = 4
-N_LABELS = 28   # will be overwritten by dataset metadata below
+N_LABELS = 28  
 
 print(f"Using device: {device}")
 print(f"Hyperparams -> BATCH={BATCH_SIZE}, EPOCHS={EPOCHS}, QUBITS={N_QUBITS}, LAYERS={N_LAYERS}")
 
-# ------------------------------
-# STEP 2: LOAD DATASET
-# ------------------------------
+
+# LOAD DATASET
+
 print("Loading GoEmotions dataset...")
 raw = load_dataset("go_emotions")
 
 # Convert train split to DataFrame
 df_all = raw["train"].to_pandas()
 
-# HuggingFace GoEmotions now provides one "labels" column (list of indices)
 feature_dict = raw["train"].features
 print("Dataset features:", feature_dict)
 
@@ -63,13 +62,13 @@ df_val, df_test   = train_test_split(df_temp, test_size=0.5, random_state=42, sh
 print("Using", N_LABELS, "emotion labels ->", all_label_names[:10], "...")
 print("Dataset sizes -> Train:", len(df_train), " Val:", len(df_val), " Test:", len(df_test))
 
-# ------------------------------
-# STEP 3: TOKENIZER + BERT
-# ------------------------------
+
+#  TOKENIZER + BERT
+
 print("Loading BERT tokenizer + encoder...")
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 bert = AutoModel.from_pretrained("bert-base-uncased").to(device)
-bert.eval()  # deterministic embeddings
+bert.eval()  
 
 @torch.no_grad()
 def encode_texts(texts, max_len=MAX_LEN):
@@ -94,9 +93,9 @@ def encode_texts(texts, max_len=MAX_LEN):
     )
     return outputs.last_hidden_state[:, 0, :]  # (B, 768)
 
-# ------------------------------
-# STEP 4: TORCH DATASETS & LOADERS
-# ------------------------------
+
+#  TORCH DATASETS & LOADERS
+
 class EmotionDataset(Dataset):
     def __init__(self, df):
         self.texts = df["text"].tolist()
@@ -120,9 +119,9 @@ train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
 val_loader   = DataLoader(val_ds,  batch_size=BATCH_SIZE, shuffle=False)
 test_loader  = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False)
 
-# ------------------------------
-# STEP 5: QUANTUM CIRCUIT
-# ------------------------------
+
+#  QUANTUM CIRCUIT
+
 # Use CPU default simulator for the quantum part
 dev = qml.device("default.qubit", wires=N_QUBITS)
 
@@ -150,7 +149,7 @@ class HybridQuantumClassifier(nn.Module):
         self.fc2 = nn.Linear(128, N_LABELS)
 
     def forward(self, x):
-        # x is typically on CUDA (from BERT)
+        # x is typically on CUDA
         x = self.proj(x)                            # (B, 768) -> (B, N_QUBITS)
 
         # PennyLane default.qubit expects CPU float32 tensors
@@ -167,9 +166,9 @@ model = HybridQuantumClassifier().to(device)
 criterion = nn.BCELoss()
 optimizer = optim.AdamW(model.parameters(), lr=LR)
 
-# ------------------------------
-# STEP 6: TRAINING LOOP
-# ------------------------------
+
+#  TRAINING LOOP
+
 print("Starting training...")
 
 for epoch in range(1, EPOCHS + 1):
@@ -177,7 +176,7 @@ for epoch in range(1, EPOCHS + 1):
     total_loss = 0.0
 
     for inputs, labels in train_loader:
-        # inputs may already be on CUDA; labels are CPU -> move both to device
+       
         inputs = inputs.to(device)
         labels = labels.to(device)
 
@@ -199,7 +198,7 @@ for epoch in range(1, EPOCHS + 1):
             inputs = inputs.to(device)
             preds = model(inputs).detach().cpu()
             all_preds.append(preds)
-            all_labels.append(labels)           # already CPU
+            all_labels.append(labels)         
 
     all_preds = torch.cat(all_preds, dim=0).numpy()
     all_labels = torch.cat(all_labels, dim=0).numpy()
@@ -207,9 +206,9 @@ for epoch in range(1, EPOCHS + 1):
 
     print(f"Epoch {epoch}/{EPOCHS} | Train Loss: {avg_loss:.4f} | Val F1: {val_f1:.4f}")
 
-# ------------------------------
-# STEP 7: TEST EVALUATION
-# ------------------------------
+
+#  TEST EVALUATION
+
 print("Evaluating on test set...")
 model.eval()
 all_preds, all_labels = [], []
@@ -232,9 +231,9 @@ print(classification_report(
 ))
 
 
-# ------------------------------
-# STEP 8: METRICS TRACKING
-# ------------------------------
+
+#  METRICS TRACKING
+
 import matplotlib.pyplot as plt
 
 train_losses, val_f1s = [], []
@@ -286,9 +285,9 @@ plt.show()
 
 
 
-# ------------------------------
-# STEP 9: CONFUSION MATRIX
-# ------------------------------
+
+# CONFUSION MATRIX
+
 from sklearn.metrics import multilabel_confusion_matrix
 import seaborn as sns
 
@@ -311,9 +310,9 @@ plt.show()
 
 
 
-# ------------------------------
-# STEP 10: PER-LABEL PERFORMANCE
-# ------------------------------
+
+#  PER-LABEL PERFORMANCE
+
 from sklearn.metrics import precision_recall_fscore_support
 
 prec, rec, f1s, support = precision_recall_fscore_support(
@@ -337,3 +336,4 @@ plt.title("Per-label F1 scores (sorted)")
 plt.show()
 
 print(df_perf)
+
