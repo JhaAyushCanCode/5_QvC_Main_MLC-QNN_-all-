@@ -1,7 +1,7 @@
 # MLC-QML_v2.py
 # Quantum-Classical Hybrid Multi-Label Classifier on GoEmotions
 # Fixed dataset splits + labels extraction + embedding projection
-# -------------------------------------------------------------
+
 # Changes vs v1:
 #   - Replaced BCELoss with BCEWithLogitsLoss + pos_weight
 #   - Added LayerNorm + tanh after projection
@@ -27,9 +27,9 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)   # suppress tokenizer warnings
 
-# -------------------------------------------------------------
-# STEP 1: CONFIG + HYPERPARAMS
-# -------------------------------------------------------------
+
+#  CONFIG + HYPERPARAMS
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 BATCH_SIZE   = 64
@@ -44,13 +44,13 @@ GRAD_CLIP    = 1.0           # new
 print(f"Using device: {device}")
 print(f"Hyperparams -> BATCH={BATCH_SIZE}, EPOCHS={EPOCHS}, QUBITS={N_QUBITS}, LAYERS={N_LAYERS}, LR={LR}")
 
-# -------------------------------------------------------------
-# STEP 2: LOAD DATASET
-# -------------------------------------------------------------
+
+# LOAD DATASET
+
 print("Loading GoEmotions dataset...")
 raw = load_dataset("go_emotions")
 
-# --- helper: list of indices → multi-hot vector --------------
+# **** helper: list of indices → multi-hot vector **** 
 all_label_names = raw["train"].features["labels"].feature.names
 N_LABELS = len(all_label_names)
 
@@ -60,7 +60,7 @@ def row_to_multihot(row):
         vec[idx] = 1.0
     return vec
 
-# 1) FULL train split (211 k + 5 k)
+#  FULL train split (211 k + 5 k)
 full_train_df = pd.concat([
     raw["train"].to_pandas(),
     raw["validation"].to_pandas()
@@ -78,9 +78,9 @@ df_train = full_train_df          # 216 k rows
 print("Label count:", N_LABELS, "— first 10:", all_label_names[:10])
 print("Dataset sizes -> Train:", len(df_train),
       "Val:", len(df_val), "Test:", len(df_test))
-# -------------------------------------------------------------
-# STEP 3: TOKENIZER + BERT  (unchanged)
-# -------------------------------------------------------------
+
+# TOKENIZER + BERT  (unchanged)
+
 print("Loading BERT tokenizer + encoder...")
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 bert = AutoModel.from_pretrained("bert-base-uncased").to(device)
@@ -108,9 +108,9 @@ def encode_texts(texts, max_len=MAX_LEN):
     )
     return outputs.last_hidden_state[:, 0, :]  # (B, 768)
 
-# -------------------------------------------------------------
-# STEP 4: TORCH DATASETS & LOADERS  (unchanged)
-# -------------------------------------------------------------
+
+#  TORCH DATASETS & LOADERS  (unchanged)
+
 class EmotionDataset(Dataset):
     def __init__(self, df):
         self.texts  = df["text"].tolist()
@@ -132,9 +132,9 @@ train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
 val_loader   = DataLoader(val_ds,  batch_size=BATCH_SIZE, shuffle=False)
 test_loader  = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False)
 
-# -------------------------------------------------------------
-# STEP 5: QUANTUM CIRCUIT
-# -------------------------------------------------------------
+
+# QUANTUM CIRCUIT
+
 dev = qml.device("default.qubit", wires=N_QUBITS)
 
 @qml.qnode(dev, interface="torch")
@@ -149,25 +149,25 @@ class HybridQuantumClassifier(nn.Module):
     def __init__(self):
         super().__init__()
         self.proj = nn.Linear(768, N_QUBITS)
-        self.norm = nn.LayerNorm(N_QUBITS)        # << new
+        self.norm = nn.LayerNorm(N_QUBITS)       
         self.q_layer = qml.qnn.TorchLayer(quantum_circuit, weight_shapes)
         self.fc1 = nn.Linear(N_QUBITS, 128)
         self.dropout = nn.Dropout(0.3)
         self.fc2 = nn.Linear(128, N_LABELS)
 
     def forward(self, x):
-        x = self.norm(torch.tanh(self.proj(x)))   # << stabilise scale
-        x_cpu = x.detach().cpu()                  # PennyLane default.qubit expects CPU
+        x = self.norm(torch.tanh(self.proj(x)))   
+        x_cpu = x.detach().cpu()                 
         q_out = self.q_layer(x_cpu).to(x.device)
         x = torch.relu(self.fc1(q_out))
         x = self.dropout(x)
-        return self.fc2(x)                        # << raw logits for BCEWithLogitsLoss
+        return self.fc2(x)                       
 
 model = HybridQuantumClassifier().to(device)
 
-# ------------------------------------------------------------- 
-# STEP 6: LOSS + OPTIMIZER 
-# ------------------------------------------------------------- 
+
+#  LOSS + OPTIMIZER 
+ 
 labels_tensor = torch.tensor(train_ds.labels, dtype=torch.float32)
 
 pos_weight = (
@@ -178,9 +178,9 @@ pos_weight = (
 criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
 optimizer = optim.AdamW(model.parameters(), lr=LR, weight_decay=1e-4)
 
-# -------------------------------------------------------------
-# STEP 7: TRAINING LOOP
-# -------------------------------------------------------------
+
+#  TRAINING LOOP
+
 print("Starting training...")
 train_losses, val_macro_f1s = [], []
 best_macro, wait = 0.0, 0
@@ -201,7 +201,7 @@ for epoch in range(1, EPOCHS + 1):
     avg_loss = total_loss / len(train_loader)
     train_losses.append(avg_loss)
 
-    # ---- validation macro-F1 ----
+    #  validation macro-F1 
     model.eval()
     all_preds, all_labels = [], []
     with torch.no_grad():
@@ -228,9 +228,9 @@ for epoch in range(1, EPOCHS + 1):
             print(f"Early-stopping at epoch {epoch} (best macro-F1 = {best_macro:.4f})")
             break
 
-# -------------------------------------------------------------
-# STEP 8: TEST EVALUATION
-# -------------------------------------------------------------
+
+#  TEST EVALUATION
+
 print("Evaluating on test set...")
 model.eval()
 all_preds, all_labels = [], []
@@ -250,9 +250,9 @@ print(classification_report(all_labels,
                             target_names=all_label_names,
                             zero_division=0))
 
-# -------------------------------------------------------------
-# STEP 9: PLOTS
-# -------------------------------------------------------------
+
+#  PLOTS
+
 plt.figure(figsize=(12,5))
 plt.subplot(1,2,1)
 plt.plot(range(1, EPOCHS+1), train_losses, marker='o')
@@ -265,9 +265,9 @@ plt.title("Validation Macro-F1")
 plt.xlabel("Epoch"); plt.ylabel("F1")
 plt.tight_layout(); plt.show()
 
-# -------------------------------------------------------------
-# STEP 10: CONFUSION MATRICES + PER-LABEL PERFORMANCE
-# -------------------------------------------------------------
+
+# CONFUSION MATRICES + PER-LABEL PERFORMANCE
+
 cm = multilabel_confusion_matrix(all_labels, (all_preds > 0.5).astype(int))
 fig, axes = plt.subplots(4, 7, figsize=(25, 15))
 axes = axes.ravel()
@@ -297,3 +297,4 @@ plt.title("Per-label F1 (test set)")
 plt.tight_layout(); plt.show()
 
 print(df_perf)
+
